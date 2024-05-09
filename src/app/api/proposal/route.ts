@@ -1,5 +1,5 @@
 import prisma from "@/server/prisma";
-import { NextRequest } from "next/server";
+import { NextRequest, NextResponse } from "next/server";
 
 export async function POST(req: NextRequest) {
   try {
@@ -74,6 +74,6 @@ export async function PUT(req: NextRequest) {
     return new Response(JSON.stringify(updateProposal));
   } catch (err: any) {
     console.log(err);
-    return { message: err.message, status: 500 };
+    return new Response(err.message);
   }
 }
