@@ -23,6 +23,6 @@ export async function PUT(req: NextRequest) {
     return new Response();
   } catch (error: any) {
     console.log(error);
-    return { message: error.message, status: 500 };
+    return new Response(error.message);
   }
 }
