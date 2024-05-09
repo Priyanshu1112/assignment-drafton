@@ -14,6 +14,6 @@ export async function GET(req: NextRequest, { params }: { params: any }) {
     return new Response(JSON.stringify(user));
   } catch (error: any) {
     console.log(error);
-    return { message: error.message, status: 500 };
+    return new Response(error.message);
   }
 }
